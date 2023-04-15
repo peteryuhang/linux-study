@@ -13,3 +13,5 @@ note and related code about learning linux knowledge
 ### [ch3. 主机规划与磁盘分区](./%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ch3/ch3.md)
 
 ### [ch5. Linux 基础命令](./%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ch5/Linux%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.md)
+
+### [ch6. Linux 的文件权限和目录配置](./%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ch6/ch6.md)
