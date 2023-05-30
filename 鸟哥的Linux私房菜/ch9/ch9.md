@@ -79,8 +79,49 @@
 >$ dump -S /dev/sda1                            # 测试一下如果备份此文件需多少容量
 >$ dump -0u -f /root/boot.dump /boot            # 将完整备份的文件名记录成为 /root/boot.dump，同时更新记录文件
                                                 # dump 时间记录到 /etc/dumpdates
+>$ dump -0j -f /root/etc.dump.bz2 /etc          # 将整个 /etc 目录进行备份，并使用 bzip2 进行压缩
 >$ dump -W                                      # 列出在 /etc/fstab 里面的具有 dump 设置的分区是否有备份过
 ```
 
+### restore
 
+- dump 的恢复使用
 
+```bash
+>$ restore -t [-f dumpfile] [-h]                # 用来查看 dump 文件
+>$ restore -C [-f dumpfile] [-D 挂载点]          # 比较 dump 与实际文件
+>$ restore -i [-f dumpfile]                     # 进入互动模式
+>$ restore -r [-f dumpfile]                     # 还原整个文件系统
+```
+
+### dd
+
+- 主要用作备份，还可以用来制作空文件
+- dd 可以读取磁盘设备的内容（几乎是直接读取扇区）
+
+```bash
+>$ dd if="input file" of="output file" bs="block size" count="number"
+```
+
+例子：
+```bash
+>$ dd if=/etc/passwd of=/tmp/passwd.back                # 将 /etc/passwd 备份到 /tmp/passwd.back 中
+>$ dd if=/dev/sda of=/tmp/mbr.back bs=512 count=1       # 将这个磁盘的 MBR 与分区表进行备份
+>$ dd if=/dev/zero of=/tmp/swap bs=1M count=128         # 新增一个 128MB 的文件在 /tmp 下面
+```
+
+### cpio
+
+- cpio 可用来备份任何东西，但是 cpio 得要配合类似 find 等可以找到文件名的命令来告知 cpio 该被备份的数据在哪里
+
+```bash
+>$ cpio -ovcB > [file|device]         # 备份
+>$ cpio -ivcdu < [file|device]        # 还原
+>$ cpio -ivct < [file|device]         # 查看
+```
+
+例子：
+```bash
+>$ find /boot | cpio -ocvB > /tmp/boot.cpio      # 通过 find 找到 /boot 下面存在的文件名，然后通过 cpio 对其进行备份
+>$ cpio -idvc < /tmp/boot.cpio                   # 将上面备份的文件在当前目录下解开
+```
