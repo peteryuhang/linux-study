@@ -21,3 +21,5 @@ note and related code about learning linux knowledge
 ### [ch8. Linux 磁盘与文件系统管理](./%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ch8/ch8.md)
 
 ### [ch9. 文件与文件系统的压缩与打包](./%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ch9/ch9.md)
+
+### [ch11. 认识与学习 bash](./%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ch11/ch11.md)
